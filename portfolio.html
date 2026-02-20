@@ -17,14 +17,27 @@
         <div class="container">
         <div class="box">
             <button id="btn-project"class="button">
-                <img src="projects-icon.png" alt="Project" class="icon-style">
+                <img src="projects.png" alt="Project" class="icon-style">
+                <span>projects</span>
             </button>
         </div>
         <div class="box">
-            <button id="btn-about-me" class="button">about-me</button>
+            <button id="btn-about-me" class="button">
+                <img src="about-me.png" alt="about-me" class="icon-style">
+                <span>About me</span>
+            </button>
         </div>
         <div class="box">
-            <button id="btn-contact"class="button">contact</button>
+            <button id="btn-contact"class="button">
+                <img src="contact.png" alt="contact" class="icon-style">
+                <span>Contact</span>
+            </button>
+        </div>
+        <div>
+            <button id="btn-resume" class="button">
+                <img src="resume.png" alt="Resume" class="icon-style">
+                <span>resume</span>
+            </button>
         </div>
         </div>
     </div>
@@ -41,6 +54,21 @@
             <button class="btn-close">X</button>
             <button class="btn-max">[]</button>
         </div>
+        <h1>PROJECTS</h1>
+        <div class="projects-wrapper">
+            <div id="project-1" class="project-container">
+                 <img src="makeItMelt.png" alt="makeItMelt">
+             </div>
+             <div id="project-2" class="project-container">
+                  <img src="Sploush_logo.png" alt="Sploush_logo">
+            </div>
+             <div id="project-3" class="project-container">
+                <img src="cubebreaker.png" alt="cubebreaker">
+            </div>
+            <div id="project-4" class="project-container">
+                <img src="voracines.png" alt="voracines">
+            </div>
+        </div>
     </div>
 
     <div id="contact-page" class="window">
@@ -48,7 +76,15 @@
             <button class="btn-close">X</button>
             <button class="btn-max">[]</button>
         </div>
-
+       <div class="container contact-container">
+        <form action="https://formspree.io/f/mwvnnyav" method="POST" class="contact-form">
+            <h2 class="form-title">Contact Me</h2>
+            <input type="email" name="email" placeholder="@" required>
+            <input type="text" name="_subject" placeholder="Object" required>
+            <textarea name="message" placeholder="your message..." required></textarea>
+            <button type="submit" class="btn-send">Send</button>
+        </form>
+    </div>
     </div>
 <script src="portfolio.js"></script>    
 </body>
