@@ -168,8 +168,15 @@ body{
     max-height: none !important;
     top: 0 !important;
     left: 0 !important;
-    transform: none !important;   
-    position: fixed !important;  
+    transform: none !important;
+    border: none !important; /* Optionnel : enlève la bordure en plein écran */
+}
+
+/* On agrandit aussi le contenu interne quand on est en plein écran */
+.full-screen .contact-container, 
+.full-screen .container {
+    width: 95%;
+    height: 85%;
 }
 
 .icon-style {
@@ -257,7 +264,6 @@ body{
     cursor: pointer;
 }
 
-/* On s'assure que l'image (le logo) reste bien dans le carré */
 .project-container img {
     max-width: 100%;
     max-height: 100%;
@@ -289,8 +295,6 @@ body{
 
 .contact-container {
     width: 85%;
-    /* Pas besoin de margin-top: auto ici car justify-content: center s'en occupe */
-    
     background-color: #f8c0d0;
     background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
@@ -299,11 +303,12 @@ body{
     
     border: 2px solid #ff1493;
     border-radius: 12px;
-    padding: 20px;
     box-sizing: border-box;
+    height: auto;
+    min-height: 400px;      /* Sécurité pour ne pas que ce soit trop petit */
+    padding: 30px;
 }
 
-/* On s'assure que le header ne bouge pas du haut même en mode Flex */
 #contact-page .window-header {
     position: absolute;
     top: 0;
@@ -312,8 +317,19 @@ body{
 
 .contact-form {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; /* Force les éléments à être les uns sous les autres */
+    gap: 15px;              /* Ajoute un bel espace entre chaque champ */
+    width: 100%;            /* Prend toute la largeur de la boîte rose */
+    align-items: stretch;   /* Étire les champs pour qu'ils aient tous la même largeur */
+}
+
+.contact-form textarea {
+    min-height: 150px; /* Taille de base */
+}
+
+/* En plein écran, on peut se permettre un textarea géant */
+.full-screen .contact-form textarea {
+    height: 40vh; 
 }
 
 .form-title {
@@ -334,12 +350,6 @@ body{
     outline: none;
 }
 
-.contact-form textarea {
-    height: 120px;
-    resize: none; /* Empêche de déformer la box */
-}
-
-/* Style du bouton envoyer */
 .btn-send {
     background-color: #ff1493;
     color: white;
@@ -354,4 +364,33 @@ body{
 .btn-send:hover {
     background-color: #d8117d;
     transform: scale(1.05);
+}
+
+#main-page, #projects-page, #contact-page {
+    width: 90%;          /* Prend 90% de la largeur de l'écran par défaut */
+    max-width: 800px;    /* Mais ne dépasse jamais 800px pour garder le style "boîte" */
+    
+    height: auto;        /* La hauteur s'ajuste au contenu */
+    max-height: 85vh;    /* Mais ne dépasse jamais 85% de la hauteur de l'écran */
+    
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background-color: #ffc0cb;
+    border: 3px solid #ff1493;
+    overflow-y: auto;    /* Ajoute un scroll si l'écran est trop petit pour le contenu */
+}
+
+.container, .contact-container, .projects-wrapper {
+    width: 90%;          /* S'élargit avec la fenêtre */
+    height: auto;        /* S'adapte au contenu */
+    min-height: 300px;   /* Garde une base visuelle */
+    margin: 20px 0;      /* Espace en haut et en bas */
+    padding: 20px;
+    box-sizing: border-box; /* Très important pour que le padding ne casse pas la largeur */
 }
