@@ -27,12 +27,21 @@ enterBtn.onclick = function(){
 aboutMeBtn.onclick = () => openWindow(aboutMePage);
 projectsBtn.onclick = () => openWindow(projectsPage);
 contactBtn.onclick = () => openWindow(contactPage);
-projectIcon1.onclick = () => openWindow(projectPage1);
-projectIcon2.onclick = () => openWindow(projectPage2);
+
+if(projectIcon1) projectIcon1.onclick = () => openWindow(projectPage1);
+if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
+
 
 function openWindow(win) {
     win.style.display = "flex";
     bringToFront(win);
+    win.classList.remove("full-screen");
+    win.style.top = "";
+    win.style.left = "";
+    win.style.transform = "";
+    win.style.zIndex = highestZ + 10; 
+    highestZ += 10;
+
 }
 
 windows.forEach(window => {
@@ -98,3 +107,11 @@ function bringToFront (windowElement) {
     highestZ++;
     windowElement.style.zIndex = highestZ;
 }
+
+document.querySelector('.project-container').onclick = function() {
+    document.getElementById('project-1-page').style.display = 'block';
+};
+
+document.querySelector('#project-1-page .btn-close').onclick = function() {
+    document.getElementById('project-1-page').style.display = 'none';
+};

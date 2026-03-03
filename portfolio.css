@@ -63,6 +63,13 @@ body{
     align-items: center;
     gap: 20px;          /* Espace entre les icônes */
     padding: 15px;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.container:hover {
+    transform: translateY(-5px); /* Ajuste la valeur selon tes préférences (5px à 10px sont des valeurs courantes) */
+    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* */
 }
 
 .box{
@@ -170,6 +177,7 @@ body{
     left: 0 !important;
     transform: none !important;
     border: none !important; /* Optionnel : enlève la bordure en plein écran */
+    z-index: 5000 !important;
 }
 
 /* On agrandit aussi le contenu interne quand on est en plein écran */
@@ -262,6 +270,14 @@ body{
     box-shadow: 4px 4px 0px rgba(0,0,0,0.1); /* Petit effet relief */
     position: relative;           /* Nécessaire pour que l'overlay se cale dessus */
     cursor: pointer;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.project-container:hover {
+    transform: translateY(-5px); /* */
+    
+    /* Ajoute ou intensifie l'ombre pour accentuer l'effet de relief */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* */
 }
 
 .project-container img {
@@ -393,4 +409,210 @@ body{
     margin: 20px 0;      /* Espace en haut et en bas */
     padding: 20px;
     box-sizing: border-box; /* Très important pour que le padding ne casse pas la largeur */
+}
+
+/* --- CONFIGURATION DE LA FENETRE PROJET (Masquée par défaut) --- */
+#project-1-page {
+    display: none; /* LAISSE EN NONE : C'est le JS qui fera le changement */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* CENTRE la fenêtre au milieu de l'écran */
+    
+    width: 90%;
+    max-width: 800px;
+    height: 80vh; 
+    
+    background-color: var(--retro-light-pink);
+    border: 4px solid var(--retro-border);
+    box-shadow: 8px 8px 0px black;
+    z-index: 2000; /* Assure qu'elle passe au-dessus du menu */
+    overflow: hidden; /* La fenêtre ne bouge pas, c'est l'intérieur qui défile */
+}
+
+/* --- LE CONTENU INTERNE --- */
+#project-1-page .window-content {
+    display: block !important; 
+    width: 100% !important;
+    height: calc(100% - 25px); /* On enlève la barre du haut */
+    padding: 30px 0 !important;
+    overflow-y: auto !important; /* ACTIVE le défilement ici */
+    overflow-x: hidden !important;
+    box-sizing: border-box;
+}
+
+/* --- LES BOITES DE TEXTE --- */
+#project-1-page .project-section {
+    display: block !important;
+    width: 85% !important;
+    max-width: 650px;
+    margin: 0 auto 30px auto !important; /* CENTRE les boîtes dans la fenêtre */
+    
+    background-color: #f8c0d0;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 3px solid #ff1493;
+    border-radius: 12px;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: left;
+    color: #333;
+}
+
+/* --- REDIMENSIONNEMENT DES IMAGES DE PROJET --- */
+.photo-grid img, 
+.project-img {
+    /* 1. Force l'image à ne jamais dépasser la largeur de sa boîte rose */
+    max-width: 100% !important; 
+    
+    /* 2. Garde les proportions originales de l'image (pas de déformation) */
+    height: auto !important; 
+    
+    /* 3. Empêche l'image de devenir trop géante sur un grand écran */
+    width: 400px; 
+    
+    /* 4. Centre l'image horizontalement dans sa boîte */
+    display: block; 
+    margin: 10px auto; 
+    
+    /* 5. Ton style visuel cohérent */
+    border: 3px solid #ff1493; 
+    border-radius: 8px; 
+    box-sizing: border-box; /* Crucial pour que la bordure ne compte pas dans la largeur */
+}
+
+/* --- ADAPTATION EN FULL SCREEN --- */
+
+/* Quand la fenêtre est en plein écran */
+.full-screen .project-section {
+    max-width: 90% !important; /* La boîte rose s'élargit */
+}
+
+.full-screen .photo-grid {
+    display: flex;
+    flex-wrap: wrap;       /* Les images se mettent côte à côte */
+    justify-content: center;
+    gap: 20px;
+}
+
+.full-screen .project-img {
+    /* En plein écran, on peut afficher les images plus grandes (ex: 600px) 
+       ou les laisser en 100% de la boîte rose */
+    width: 45%;            /* Affiche 2 images par ligne si possible */
+    min-width: 300px;      /* Mais garde une taille décente sur petit écran */
+    max-width: 600px;
+}
+
+.video-wrapper {
+    width: 95%;           /* Prend presque toute la largeur de la boîte rose */
+    max-width: 800px;     /* Limite pour ne pas que ça devienne pixelisé sur écran géant */
+    margin: 20px auto;    /* Centre la vidéo avec de l'espace autour */
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio magique pour le 16:9 (9 / 16 * 100) */
+    height: 0;
+    border: 3px solid #ff1493;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+}
+
+/* Force l'iframe à remplir tout le wrapper */
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* --- Adaptation spéciale Plein Écran --- */
+.full-screen .video-wrapper {
+    max-width: 1000px;    /* Encore plus grand quand la fenêtre est maximisée */
+    margin-top: 40px;
+}
+
+#project-1-page h2 {
+    font-size: 2rem;
+    text-shadow: 3px 3px 0px #ff1493; /* Effet d'ombre rétro sur le texte */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* --- EFFET DE CARTES POUR LES RÔLES --- */
+.roles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* L'ESPACE MAGIQUE : crée 30px entre chaque carte automatiquement */
+    margin-top: 20px;
+}
+
+/* Style de chaque carte de rôle */
+.role-card {
+    background: rgba(255, 255, 255, 0.5); /* Fond blanc translucide */
+    border-left: 8px solid #ff1493;      /* Grosse barre colorée sur le côté */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.05); /* Petite ombre portée */
+    transition: transform 0.2s ease;
+}
+
+/* Effet au survol pour rendre le CV interactif */
+.role-card:hover {
+    transform: translateX(10px); /* La carte se décale légèrement à droite */
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Style des titres dans les cartes */
+.role-card h3 {
+    margin-top: 0;
+    color: #ff1493;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- CUSTOM SCROLLBAR (La barre de défilement rose) --- */
+#project-1-page .window-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+#project-1-page .window-content::-webkit-scrollbar-track {
+    background: #f8c0d0;
+    border-radius: 10px;
+}
+
+#project-1-page .window-content::-webkit-scrollbar-thumb {
+    background: #ff1493;
+    border: 2px solid #f8c0d0;
+    border-radius: 10px;
+}
+
+/* --- SÉPARATEURS STYLISÉS --- */
+hr {
+    border: none;
+    height: 6px;
+    background-image: radial-gradient(#ff1493 2px, transparent 2px);
+    background-size: 15px 15px;
+    margin: 40px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+@keyframes windowPop {
+    from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+#project-1-page[style*="display: block"] {
+    animation: windowPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#project-1-page, #project-2-page {
+    /* On booste le z-index des pages de projets spécifiques */
+    z-index: 6000 !important;
 }
