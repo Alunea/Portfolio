@@ -7,6 +7,10 @@ const contactPage = document.getElementById("contact-page");
 const enterBtn = document.getElementById("btn-enter");
 const mainMenuPage = document.getElementById("main-page");
 const welcomeScreen = document.getElementById("welcome-screen");
+const projectIcon1 = document.getElementById("project-1");
+const projectIcon2 = document.getElementById("project-2");
+const projectPage1 = document.getElementById("project-1-page");
+const projectPage2 = document.getElementById("project-2-page");
 
 const windows = document.querySelectorAll(".window"); 
 
@@ -23,6 +27,8 @@ enterBtn.onclick = function(){
 aboutMeBtn.onclick = () => openWindow(aboutMePage);
 projectsBtn.onclick = () => openWindow(projectsPage);
 contactBtn.onclick = () => openWindow(contactPage);
+projectIcon1.onclick = () => openWindow(projectPage1);
+projectIcon2.onclick = () => openWindow(projectPage2);
 
 function openWindow(win) {
     win.style.display = "flex";
