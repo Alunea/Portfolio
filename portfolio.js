@@ -7,8 +7,14 @@ const contactPage = document.getElementById("contact-page");
 const enterBtn = document.getElementById("btn-enter");
 const mainMenuPage = document.getElementById("main-page");
 const welcomeScreen = document.getElementById("welcome-screen");
+
+// Les icônes de projets (dans la grille)
 const projectIcon1 = document.getElementById("project-1");
 const projectIcon2 = document.getElementById("project-2");
+const projectIcon3 = document.getElementById("project-3");
+const projectIcon4 = document.getElementById("project-4");
+
+// Les pages de détails
 const projectPage1 = document.getElementById("project-1-page");
 const projectPage2 = document.getElementById("project-2-page");
 
@@ -19,31 +25,36 @@ let currentWindow = null;
 let offsetX, offsetY; 
 let highestZ = 1000;
 
+// ECRAN D'ACCUEIL
 enterBtn.onclick = function(){
     mainMenuPage.style.display = "flex";
     welcomeScreen.style.display ="none";
 }
 
+// NAVIGATION MENU PRINCIPAL
 aboutMeBtn.onclick = () => openWindow(aboutMePage);
 projectsBtn.onclick = () => openWindow(projectsPage);
 contactBtn.onclick = () => openWindow(contactPage);
 
+// CLIC SUR LES PROJETS
 if(projectIcon1) projectIcon1.onclick = () => openWindow(projectPage1);
 if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
+// Tu pourras ajouter le 3 et 4 ici plus tard
 
-
+// FONCTION UNIVERSELLE POUR OUVRIR UNE FENÊTRE
 function openWindow(win) {
-    win.style.display = "flex";
+    if(!win) return; // Sécurité si la page n'existe pas
+    win.style.display = "flex"; // Obligatoire pour le centrage CSS
     bringToFront(win);
+    
+    // Reset de la position au centre au cas où elle aurait été bougée
     win.classList.remove("full-screen");
-    win.style.top = "";
-    win.style.left = "";
-    win.style.transform = "";
-    win.style.zIndex = highestZ + 10; 
-    highestZ += 10;
-
+    win.style.top = "50%";
+    win.style.left = "50%";
+    win.style.transform = "translate(-50%, -50%)";
 }
 
+// LOGIQUE COMMUNE (Fermeture, Maximisation, Drag)
 windows.forEach(window => {
     const btnClose = window.querySelector('.btn-close');
     const btnMax = window.querySelector('.btn-max');
@@ -72,8 +83,10 @@ windows.forEach(window => {
         };
     }
 
+    // Gestion du déplacement (Drag)
     window.addEventListener("mousedown", (event) => {
-        if (event.target.tagName === 'BUTTON') return;
+        // Ne pas draguer si on clique sur un bouton ou un input
+        if (event.target.tagName === 'BUTTON' || event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
 
         isDragging = true; 
         currentWindow = window;
@@ -104,14 +117,6 @@ document.addEventListener("mouseup", () => {
 });
 
 function bringToFront (windowElement) {
-    highestZ++;
+    highestZ += 10;
     windowElement.style.zIndex = highestZ;
 }
-
-document.querySelector('.project-container').onclick = function() {
-    document.getElementById('project-1-page').style.display = 'block';
-};
-
-document.querySelector('#project-1-page .btn-close').onclick = function() {
-    document.getElementById('project-1-page').style.display = 'none';
-};

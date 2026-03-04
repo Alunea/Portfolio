@@ -412,12 +412,13 @@ body{
 }
 
 /* --- CONFIGURATION DE LA FENETRE PROJET (Masquée par défaut) --- */
-#project-1-page {
-    display: none; /* LAISSE EN NONE : C'est le JS qui fera le changement */
+#project-1-page,
+#project-2-page {
+    display: none; 
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* CENTRE la fenêtre au milieu de l'écran */
+    transform: translate(-50%, -50%);
     
     width: 90%;
     max-width: 800px;
@@ -426,28 +427,31 @@ body{
     background-color: var(--retro-light-pink);
     border: 4px solid var(--retro-border);
     box-shadow: 8px 8px 0px black;
-    z-index: 2000; /* Assure qu'elle passe au-dessus du menu */
-    overflow: hidden; /* La fenêtre ne bouge pas, c'est l'intérieur qui défile */
+    z-index: 6000 !important; /* Très haut pour être au-dessus de tout */
+    overflow: hidden; 
+    flex-direction: column; /* Crucial pour le header + content */
 }
 
-/* --- LE CONTENU INTERNE --- */
-#project-1-page .window-content {
-    display: block !important; 
+/* --- LE CONTENU INTERNE (Celui qui centre tout) --- */
+#project-1-page .window-content,
+#project-2-page .window-content {
+    display: flex !important; /* On force le flex pour le centrage */
+    flex-direction: column;
+    align-items: center; /* CENTRE LES BOITES ROSES HORIZONTALEMENT */
     width: 100% !important;
-    height: calc(100% - 25px); /* On enlève la barre du haut */
+    height: calc(100% - 30px); 
     padding: 30px 0 !important;
-    overflow-y: auto !important; /* ACTIVE le défilement ici */
+    overflow-y: auto !important; 
     overflow-x: hidden !important;
     box-sizing: border-box;
 }
 
-/* --- LES BOITES DE TEXTE --- */
-#project-1-page .project-section {
+/* --- LES SECTIONS (Boîtes roses à l'intérieur) --- */
+.project-section {
     display: block !important;
     width: 85% !important;
     max-width: 650px;
-    margin: 0 auto 30px auto !important; /* CENTRE les boîtes dans la fenêtre */
-    
+    margin: 0 auto 30px auto !important; /* Le 'auto' sur les côtés centre la boîte */
     background-color: #f8c0d0;
     background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
@@ -457,10 +461,10 @@ body{
     border-radius: 12px;
     padding: 25px;
     box-sizing: border-box;
-    text-align: left;
+    text-align: left; /* Le texte reste lisible à gauche DANS la boîte centrée */
     color: #333;
+    flex-shrink: 0; /* Empêche la boîte de s'écraser */
 }
-
 /* --- REDIMENSIONNEMENT DES IMAGES DE PROJET --- */
 .photo-grid img, 
 .project-img {
@@ -533,7 +537,8 @@ body{
     margin-top: 40px;
 }
 
-#project-1-page h2 {
+#project-1-page h2,
+#project-2-page h2 {
     font-size: 2rem;
     text-shadow: 3px 3px 0px #ff1493; /* Effet d'ombre rétro sur le texte */
     text-transform: uppercase;
@@ -577,16 +582,19 @@ body{
 }
 
 /* --- CUSTOM SCROLLBAR (La barre de défilement rose) --- */
-#project-1-page .window-content::-webkit-scrollbar {
+#project-1-page .window-content::-webkit-scrollbar,
+#project-2-page .window-content::-webkit-scrollbar {
     width: 12px;
 }
 
-#project-1-page .window-content::-webkit-scrollbar-track {
+#project-1-page .window-content::-webkit-scrollbar-track,
+#project-2-page .window-content::-webkit-scrollbar-track {
     background: #f8c0d0;
     border-radius: 10px;
 }
 
-#project-1-page .window-content::-webkit-scrollbar-thumb {
+#project-1-page .window-content::-webkit-scrollbar-thumb,
+#project-2-page .window-content::-webkit-scrollbar-thumb{
     background: #ff1493;
     border: 2px solid #f8c0d0;
     border-radius: 10px;
