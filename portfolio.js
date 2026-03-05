@@ -17,6 +17,8 @@ const projectIcon4 = document.getElementById("project-4");
 // Les pages de détails
 const projectPage1 = document.getElementById("project-1-page");
 const projectPage2 = document.getElementById("project-2-page");
+const projectPage3 = document.getElementById("project-3-page");
+const projectPage4 = document.getElementById("project-4-page");
 
 const windows = document.querySelectorAll(".window"); 
 
@@ -39,7 +41,8 @@ contactBtn.onclick = () => openWindow(contactPage);
 // CLIC SUR LES PROJETS
 if(projectIcon1) projectIcon1.onclick = () => openWindow(projectPage1);
 if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
-// Tu pourras ajouter le 3 et 4 ici plus tard
+if(projectIcon3) projectIcon3.onclick = () => openWindow(projectPage3);
+if(projectIcon4) projectIcon4.onclick = () => openWindow(projectPage4);
 
 // FONCTION UNIVERSELLE POUR OUVRIR UNE FENÊTRE
 function openWindow(win) {
