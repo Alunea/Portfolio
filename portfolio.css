@@ -128,8 +128,6 @@ body {
 #contact-page {
     display: none; 
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 800px;
     height: 750px;
     position: absolute;
@@ -158,7 +156,6 @@ body {
     background-color: var(--retro-light-pink);
     border: 4px solid var(--retro-border);
     box-shadow: 8px 8px 0px black;
-    z-index: 6000 !important;
     overflow: hidden; 
     flex-direction: column;
 }

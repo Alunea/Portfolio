@@ -20,45 +20,53 @@ const projectPage2 = document.getElementById("project-2-page");
 const projectPage3 = document.getElementById("project-3-page");
 const projectPage4 = document.getElementById("project-4-page");
 
-const windows = document.querySelectorAll(".window"); 
+// On récupère toutes les fenêtres (y compris les projets)
+const allWindows = document.querySelectorAll(".window"); 
 
 let isDragging = false; 
 let currentWindow = null; 
 let offsetX, offsetY; 
 let highestZ = 1000;
 
-// ECRAN D'ACCUEIL
+// --- 1. GESTION DU PREMIER PLAN (FOCUS) ---
+// On écoute n'importe quel clic sur le document
+document.addEventListener("mousedown", (event) => {
+    // On cherche si l'élément cliqué est une fenêtre ou se trouve dans une fenêtre
+    const clickedWindow = event.target.closest(".window");
+    if (clickedWindow) {
+        bringToFront(clickedWindow);
+    }
+});
+
+// --- 2. OUVERTURE DES FENÊTRES ---
 enterBtn.onclick = function(){
     mainMenuPage.style.display = "flex";
     welcomeScreen.style.display ="none";
 }
 
-// NAVIGATION MENU PRINCIPAL
 aboutMeBtn.onclick = () => openWindow(aboutMePage);
 projectsBtn.onclick = () => openWindow(projectsPage);
 contactBtn.onclick = () => openWindow(contactPage);
 
-// CLIC SUR LES PROJETS
 if(projectIcon1) projectIcon1.onclick = () => openWindow(projectPage1);
 if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
 if(projectIcon3) projectIcon3.onclick = () => openWindow(projectPage3);
 if(projectIcon4) projectIcon4.onclick = () => openWindow(projectPage4);
 
-// FONCTION UNIVERSELLE POUR OUVRIR UNE FENÊTRE
 function openWindow(win) {
-    if(!win) return; // Sécurité si la page n'existe pas
-    win.style.display = "flex"; // Obligatoire pour le centrage CSS
+    if(!win) return; 
+    win.style.display = "flex"; 
     bringToFront(win);
     
-    // Reset de la position au centre au cas où elle aurait été bougée
     win.classList.remove("full-screen");
+    // On garde le centrage initial
     win.style.top = "50%";
     win.style.left = "50%";
     win.style.transform = "translate(-50%, -50%)";
 }
 
-// LOGIQUE COMMUNE (Fermeture, Maximisation, Drag)
-windows.forEach(window => {
+// --- 3. LOGIQUE BOUTONS ET DRAG ---
+allWindows.forEach(window => {
     const btnClose = window.querySelector('.btn-close');
     const btnMax = window.querySelector('.btn-max');
 
@@ -73,7 +81,6 @@ windows.forEach(window => {
         btnMax.onclick = (event) => {
             event.stopPropagation(); 
             window.classList.toggle("full-screen");
-
             if (window.classList.contains("full-screen")) {
                 window.style.top = "0";
                 window.style.left = "0";
@@ -86,20 +93,16 @@ windows.forEach(window => {
         };
     }
 
-    // Gestion du déplacement (Drag)
+    // Détection du début du drag (uniquement sur le header ou la fenêtre elle-même)
     window.addEventListener("mousedown", (event) => {
-        // Ne pas draguer si on clique sur un bouton ou un input
-        if (event.target.tagName === 'BUTTON' || event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+        if (event.target.tagName === 'BUTTON' || event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.tagName === 'IFRAME') return;
 
         isDragging = true; 
         currentWindow = window;
-
         const rect = window.getBoundingClientRect();
         offsetX = event.clientX - rect.left;
         offsetY = event.clientY - rect.top;
-
         window.style.cursor = 'grabbing';
-        bringToFront(window);
     });
 });
 
@@ -112,10 +115,8 @@ document.addEventListener("mousemove", (event) => {
 });
 
 document.addEventListener("mouseup", () => {
-    if (currentWindow) {
-        currentWindow.style.cursor = 'grab';
-    }
     isDragging = false; 
+    if (currentWindow) currentWindow.style.cursor = 'grab';
     currentWindow = null; 
 });
 
