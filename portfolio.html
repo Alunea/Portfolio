@@ -3,140 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="portfolio.css"> 
+    <link rel="stylesheet" href="portfolio.css">
     <title>Arjdal Luna | Portfolio</title>
 </head>
 <body>
+
+    <!-- ==========================================
+         ECRAN D'ACCUEIL (WELCOME)
+         ========================================== -->
     <div id="welcome-screen">
         <button id="btn-enter">Welcome to my portfolio</button>
     </div>
+
+    <!-- ==========================================
+         PAGE PRINCIPALE (BUREAU)
+         ========================================== -->
     <div id="main-page" class="window">
-        <div class="window-header">
-        </div>
+        <div class="window-header"></div>
+        
         <h1 id="name">Arjdal Luna</h1>
+        
         <div class="container">
-        <div class="box">
-            <button id="btn-project"class="button">
-                <img src="projects.png" alt="Project" class="icon-style">
-                <span>projects</span>
-            </button>
-        </div>
-        <div class="box">
-            <button id="btn-about-me" class="button">
-                <img src="about-me.png" alt="about-me" class="icon-style">
-                <span>About me</span>
-            </button>
-        </div>
-        <div class="box">
-            <button id="btn-contact"class="button">
-                <img src="contact.png" alt="contact" class="icon-style">
-                <span>Contact</span>
-            </button>
-        </div>
-        <div>
-            <button id="btn-resume" class="button">
-                <img src="resume.png" alt="Resume" class="icon-style">
-                <span>resume</span>
-            </button>
-        </div>
-        </div>
-    </div>
-
-    <div id="resume-page" class="window">
-    <div class="window-header">
-        <button class="btn-close">X</button>
-        <button class="btn-max">[]</button>
-    </div>
-<div class="resume-window-content">
-  <div class="resume-section">
-    
-    <a href="French.Cv.pdf" target="_blank" class="icon-link">
-      <div class="cv-icon-wrapper">
-        <img src="resume.png" class="icon-style-cv">
-      </div>
-      <span class="cv-text">Français</span>
-    </a>
-
-    <a href="English.cv.pdf" target="_blank" class="icon-link">
-      <div class="cv-icon-wrapper">
-        <img src="resume.png" class="icon-style-cv">
-      </div>
-      <span class="cv-text">English</span>
-    </a>
-
-  </div>
-</div>
-    </div>
-
-   <div id="about-me-page" class="window">
-    <div class="window-header">
-        <button class="btn-close">X</button>
-        <button class="btn-max">[]</button>
-    </div>
-    <div class="window-content">
-        <section class="project-section description">
-            <h1>About Me</h1>
-            <div class="about-intro-container">
-        <!-- Ta photo dans une role-card -->
-        <div class="role-card photo-card">
-            <img src="luna.png" alt="Luna Arjdal" class="about-profile-img">
-        </div>
-
-        <!-- Ton texte de présentation -->
-        <div class="bio-text-wrapper">
-            <p>
-                Currently a second-year <strong>Game Design student at ISART Digital</strong>, I approach game design as a natural extension of my lifelong passion for creativity and human connection.
-            </p>
-            <p>
-                My journey is unconventional: I first honed my discipline and attention to detail in the world of <strong>Artisanal Baking and Pastry</strong>, followed by studies in the hospitality industry.
-            </p>
-            <p>
-                Deeply inspired by adventure sagas like <strong>Uncharted</strong> and my extensive travels—from Africa and Asia to Scandinavia. I strive to infuse my projects with a sense of discovery and wonder, reflecting my love for cooperative gameplay and shared moments.
-            </p>
-        </div>
-    </div>
-        </section>
-
-        <hr>
-
-        <section class="project-section contributions">
-            <h2>Technical Stack & Skills</h2>
-            <div class="roles-container">
-                <!-- Stack Technique -->
-                <div class="role-card">
-                    <h3>Development</h3>
-                    <p>
-                        <strong>Unity & C#</strong>: Core engine and gameplay programming.<br>
-                        <strong>Web</strong>: HTML, CSS, JavaScript.<br>
-                        <strong>Visual Scripting</strong>: Prototyping and logic flow.
-                    </p>
-                </div>
-
-                <!-- Design & Tools -->
-                <div class="role-card">
-                    <h3>Design & Media</h3>
-                    <p>
-                        <strong>Creative</strong>: Photoshop, Premiere Pro, Capcut.<br>
-                        <strong>Organization</strong>: Excel, PowerPoint, Figma, Miro.<br>
-                        <strong>Methodology</strong>: Level Design, System Design, Playtest analysis.
-                    </p>
-                </div>
-
-                <!-- Soft Skills -->
-                <div class="role-card">
-                    <h3>Soft Skills</h3>
-                    <ul>
-                        <li>Excellent Customer Relations</li>
-                        <li>Organized & Rigorous</li>
-                        <li>Team Player & Dynamic</li>
-                        <li>Curiosity & Constant Learning</li>
-                    </ul>
-                </div>
+            <div class="box">
+                <button id="btn-project" class="button">
+                    <img src="projects.png" alt="Project" class="icon-style">
+                    <span>projects</span>
+                </button>
             </div>
-        </section>
+            <div class="box">
+                <button id="btn-about-me" class="button">
+                    <img src="about-me.png" alt="about-me" class="icon-style">
+                    <span>About me</span>
+                </button>
+            </div>
+            <div class="box">
+                <button id="btn-contact" class="button">
+                    <img src="contact.png" alt="contact" class="icon-style">
+                    <span>Contact</span>
+                </button>
+            </div>
+            <div class="box">
+                <button id="btn-resume" class="button">
+                    <img src="resume.png" alt="Resume" class="icon-style">
+                    <span>resume</span>
+                </button>
+            </div>
+        </div>
     </div>
-</div>
 
+    <!-- ==========================================
+         FENÊTRE RESUME (CV)
+         ========================================== -->
+    <div id="resume-page" class="window">
+        <div class="window-header">
+            <button class="btn-close">X</button>
+            <button class="btn-max">[]</button>
+        </div>
+        <div class="resume-window-content">
+            <div class="resume-section">
+                <a href="French.Cv.pdf" target="_blank" class="icon-link">
+                    <div class="cv-icon-wrapper">
+                        <img src="resume.png" class="icon-style-cv" alt="CV Français">
+                    </div>
+                    <span class="cv-text">Français</span>
+                </a>
+
+                <a href="English.cv.pdf" target="_blank" class="icon-link">
+                    <div class="cv-icon-wrapper">
+                        <img src="resume.png" class="icon-style-cv" alt="English CV">
+                    </div>
+                    <span class="cv-text">English</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         FENÊTRE ABOUT ME
+         ========================================== -->
+    <div id="about-me-page" class="window">
+        <div class="window-header">
+            <button class="btn-close">X</button>
+            <button class="btn-max">[]</button>
+        </div>
+        
+        <div class="window-content">
+            <section class="project-section description">
+                <h1>About Me</h1>
+                <div class="about-intro-container">
+                    <!-- Photo -->
+                    <div class="role-card photo-card">
+                        <img src="luna.png" alt="Luna Arjdal" class="about-profile-img">
+                    </div>
+
+                    <!-- Texte de présentation -->
+                    <div class="bio-text-wrapper">
+                        <p>
+                            Currently a second-year <strong>Game Design student at ISART Digital</strong>, I approach game design as a natural extension of my lifelong passion for creativity and human connection.
+                        </p>
+                        <p>
+                            My journey is unconventional: I first honed my discipline and attention to detail in the world of <strong>Artisanal Baking and Pastry</strong>, followed by studies in the hospitality industry.
+                        </p>
+                        <p>
+                            Deeply inspired by adventure sagas like <strong>Uncharted</strong> and my extensive travels—from Africa and Asia to Scandinavia. I strive to infuse my projects with a sense of discovery and wonder, reflecting my love for cooperative gameplay and shared moments.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="project-section contributions">
+                <h2>Technical Stack & Skills</h2>
+                <div class="roles-container">
+                    <!-- Stack Technique -->
+                    <div class="role-card">
+                        <h3>Development</h3>
+                        <p>
+                            <strong>Unity & C#</strong>: Core engine and gameplay programming.<br>
+                            <strong>Web</strong>: HTML, CSS, JavaScript.<br>
+                            <strong>Visual Scripting</strong>: Prototyping and logic flow.
+                        </p>
+                    </div>
+
+                    <!-- Design & Tools -->
+                    <div class="role-card">
+                        <h3>Design & Media</h3>
+                        <p>
+                            <strong>Creative</strong>: Photoshop, Premiere Pro, Capcut.<br>
+                            <strong>Organization</strong>: Excel, PowerPoint, Figma, Miro.<br>
+                            <strong>Methodology</strong>: Level Design, System Design, Playtest analysis.
+                        </p>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="role-card">
+                        <h3>Soft Skills</h3>
+                        <ul>
+                            <li>Excellent Customer Relations</li>
+                            <li>Organized & Rigorous</li>
+                            <li>Team Player & Dynamic</li>
+                            <li>Curiosity & Constant Learning</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         FENÊTRE LISTE DES PROJETS
+         ========================================== -->
     <div id="projects-page" class="window">
         <div class="window-header">
             <button class="btn-close">X</button>
@@ -145,12 +162,12 @@
         <h1 class="title">PROJECTS</h1>
         <div class="projects-wrapper">
             <div id="project-1" class="project-container">
-                 <img src="makeItMelt.png" alt="makeItMelt">
-             </div>
-             <div id="project-2" class="project-container">
-                  <img src="Sploush_logo.png" alt="Sploush_logo">
+                <img src="makeItMelt.png" alt="makeItMelt">
             </div>
-             <div id="project-3" class="project-container">
+            <div id="project-2" class="project-container">
+                <img src="Sploush_logo.png" alt="Sploush_logo">
+            </div>
+            <div id="project-3" class="project-container">
                 <img src="cubebreaker.png" alt="cubebreaker">
             </div>
             <div id="project-4" class="project-container">
@@ -159,111 +176,122 @@
         </div>
     </div>
 
+    <!-- ==========================================
+         FENÊTRE CONTACT
+         ========================================== -->
     <div id="contact-page" class="window">
         <div class="window-header">
             <button class="btn-close">X</button>
             <button class="btn-max">[]</button>
         </div>
-       <div class="container contact-container">
-        <form action="https://formspree.io/f/mwvnnyav" method="POST" class="contact-form">
-            <h2 class="form-title">Contact Me</h2>
-            <input type="email" name="email" placeholder="@" required>
-            <input type="text" name="_subject" placeholder="Object" required>
-            <textarea name="message" placeholder="your message..." required></textarea>
-            <button type="submit" class="btn-send">Send</button>
-        </form>
+        
+        <div class="container contact-container">
+            <form action="https://formspree.io/f/mwvnnyav" method="POST" class="contact-form">
+                <h2 class="form-title">Contact Me</h2>
+                <input type="email" name="email" placeholder="@" required>
+                <input type="text" name="_subject" placeholder="Object" required>
+                <textarea name="message" placeholder="your message..." required></textarea>
+                <button type="submit" class="btn-send">Send</button>
+            </form>
+        </div>
+
+        <div class="contact-info-row">
+            <div class="info-card">
+                <span class="info-label">Email</span>
+                <a href="mailto:luna.arjdal1@gmail.com" class="info-value">luna.arjdal1@gmail.com</a>
+            </div>
+            <div class="info-card">
+                <span class="info-label">Phone</span>
+                <span class="info-value">+33 6 25 06 12 84</span>
+            </div>
+            <div class="info-card">
+                <span class="info-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/luna-arjdal" target="_blank" class="info-value">My Profil</a>
+            </div>
+        </div>
     </div>
 
-<div class="contact-info-row">
-    <div class="info-card">
-        <span class="info-label">Email</span>
-        <a href="mailto:luna.arjdal1@gmail.com" class="info-value">luna.arjdal1@gmail.com</a>
-    </div>
-    
-    <div class="info-card">
-        <span class="info-label">Phone</span>
-        <span class="info-value">+33 6 25 06 12 84</span>
-    </div>
-    
-    <div class="info-card">
-        <span class="info-label">LinkedIn</span>
-        <a href="https://linkedin.com/in/luna-arjdal" target="_blank" class="info-value">My Profil</a>
-    </div>
-</div>
-    </div>
-
-    <!-- PROJET 1 : MAKE IT MELT -->
+    <!-- ==========================================
+         DÉTAILS PROJET 1 : MAKE IT MELT
+         ========================================== -->
     <div id="project-1-page" class="window">
         <div class="window-header">
             <button class="btn-close">X</button>
             <button class="btn-max">[]</button>
         </div>
         <div class="window-content">
-        <section class="project-section description">
-            <h1>Make it melt</h1>
-            <p>
-               In Make It Melt, you play as Marceline, a skilled blacksmith whose raw materials have unexpectedly come to life and escaped. As these sentient ores are too tough to be broken by force, you must chase them through various levels and use strategy to guide them into the right furnaces. Heat is your only weapon in this frantic quest to reclaim your workshop’s supplies.
-            </p>
-        </section>
+            <section class="project-section description">
+                <h1>Make it melt</h1>
+                <p>
+                   In Make It Melt, you play as Marceline, a skilled blacksmith whose raw materials have unexpectedly come to life and escaped. As these sentient ores are too tough to be broken by force, you must chase them through various levels and use strategy to guide them into the right furnaces. Heat is your only weapon in this frantic quest to reclaim your workshop’s supplies.
+                </p>
+            </section>
 
-        <section class="project-section description">
-            <h2>Details</h2>
-            <ul>
-                <li> TYPE : Brawler 3D & Team Project</li>
-                <li> ROLE : Game Designer & Programmer</li>
-                <li> DATE : From October 2025 to December 2025</li>
-            </ul>
-        </section>
-        <hr>
-        <section class="project-section gallery">
-            <div class="photo-grid">
-                <img src="makeItMelt.png" alt="Capture d'écran 1" class="project-img">
-                <img src="MakeItMelt1.png" alt="Capture d'écran 2" class="project-img">
-                <img src="MakeItMelt2.png" alt="Concept Art" class="project-img">
-                <img src="MakeItMelt3.png" alt="Concept Art" class="project-img">
-            </div>
-        </section>
-        <hr>
-        <section class="project-section trailer">
-            <h2>Trailer</h2>
-            <div class="video-wrapper">
-             <iframe width="100%" height="315" src="https://www.youtube.com/embed/qiNsnciRWNo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </section>
-        <hr>
-        <section class="project-section contributions">
-            <h2>My contributions</h2>
-            <div class="roles-container">
-                <div class="role-card">
-                    <h3> Game Design</h3>
-                    <p>This project was developed by a team of five Game Designers.<br>
-                        Since we handled the entire programming process ourselves, we had to be pragmatic: we adapted our design goals to our technical capabilities to ensure a polished and functional core experience.<br>
-                        Our goal was to deconstruct the traditional idea of a brawler.<br>
-                        Inspired by billiard physics, we moved away from pure aggression to incorporate a tactical and reflective layer. Players must anticipate trajectories and calculate angles, making strategy just as vital as the combat itself.<br><br>
-                         While the Game Concept was a collaborative effort, I took full charge of the visual communication for our oral presentations. I designed and structured the PowerPoint decks, translating our collective ideas into a professional and impactful visual format to ensure our vision was effectively communicated during our pitches.
-                     </p>
+            <section class="project-section description">
+                <h2>Details</h2>
+                <ul>
+                    <li> TYPE : Brawler 3D & Team Project</li>
+                    <li> ROLE : Game Designer & Programmer</li>
+                    <li> DATE : From October 2025 to December 2025</li>
+                </ul>
+            </section>
+            
+            <hr>
+            
+            <section class="project-section gallery">
+                <div class="photo-grid">
+                    <img src="makeItMelt.png" alt="Capture d'écran 1" class="project-img">
+                    <img src="MakeItMelt1.png" alt="Capture d'écran 2" class="project-img">
+                    <img src="MakeItMelt2.png" alt="Concept Art" class="project-img">
+                    <img src="MakeItMelt3.png" alt="Concept Art" class="project-img">
                 </div>
-                <div class="role-card">
-                    <h3>Programmation</h3>
-                    <p>I co-managed the C# programming for this project using Unity.<br>
-                        My work focused on building the game's core architecture and ensuring a seamless player experience through three key areas:
+            </section>
+            
+            <hr>
+            
+            <section class="project-section trailer">
+                <h2>Trailer</h2>
+                <div class="video-wrapper">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/qiNsnciRWNo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <hr>
+            
+            <section class="project-section contributions">
+                <h2>My contributions</h2>
+                <div class="roles-container">
+                    <div class="role-card">
+                        <h3>Game Design</h3>
+                        <p>
+                            This project was developed by a team of five Game Designers.<br>
+                            Since we handled the entire programming process ourselves, we had to be pragmatic: we adapted our design goals to our technical capabilities to ensure a polished and functional core experience.<br>
+                            Our goal was to deconstruct the traditional idea of a brawler.<br>
+                            Inspired by billiard physics, we moved away from pure aggression to incorporate a tactical and reflective layer. Players must anticipate trajectories and calculate angles, making strategy just as vital as the combat itself.<br><br>
+                            While the Game Concept was a collaborative effort, I took full charge of the visual communication for our oral presentations. I designed and structured the PowerPoint decks, translating our collective ideas into a professional and impactful visual format to ensure our vision was effectively communicated during our pitches.
+                         </p>
+                    </div>
+                    <div class="role-card">
+                        <h3>Programmation</h3>
+                        <p>
+                            I co-managed the C# programming for this project using Unity.<br>
+                            My work focused on building the game's core architecture and ensuring a seamless player experience through three key areas:
+                        </p>
                         <ul>
-                            <li>Enemy Behaviors:Engineered a diverse range of enemy behaviors using modular logic, including exploding types, jumping mechanics ...</li>
-                            <br>
-                            <li>Environment and Gameplay Mechanics: Programmed interactive level elements including platforms, door systems, ovens, and checkpoint logic. I also implemented the core player health system.​</li>
-                            <br>
+                            <li>Enemy Behaviors: Engineered a diverse range of enemy behaviors using modular logic, including exploding types, jumping mechanics ...</li>
+                            <li>Environment and Gameplay Mechanics: Programmed interactive level elements including platforms, door systems, ovens, and checkpoint logic. I also implemented the core player health system.</li>
                             <li>UI/UX and Scene Management: Developed the complete menu system and programmed smooth scene transitions to ensure a professional flow throughout the game.</li>
-                            <br>
                             <li>Juice and Game Feel: A significant portion of my contribution was dedicated to Game Feel. I implemented VFX (particle systems) and visual feedback to ensure that every interaction felt satisfying, responsive, and immersive.</li>
                         </ul>
-                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
     </div>
 
-    <!-- PROJET 2 : SPLOUSH -->
+    <!-- ==========================================
+         DÉTAILS PROJET 2 : SPLOUSH
+         ========================================== -->
     <div id="project-2-page" class="window">
         <div class="window-header">
             <button class="btn-close">X</button>
@@ -276,7 +304,7 @@
                     Sloupsh is a curious slime living in a peaceful city.<br>
                     But for him, life doesn't end at the edge of the local neighborhoods.<br>
                     Convinced that a vast world awaits beyond, he sets off on a journey. His only means of travel? A natural ability to propel himself using powerful water jets.<br><br>
-                    In this 2.5D platformer, the city becomes a massive playground for vertical exploration. Your survival and progress depend entirely on how you manage your water levels.every multi-directional blast consumes a part of your internal reservoir.
+                    In this 2.5D platformer, the city becomes a massive playground for vertical exploration. Your survival and progress depend entirely on how you manage your water levels. every multi-directional blast consumes a part of your internal reservoir.
                     Traverse the city from its deepest alleys to its highest peaks, and finally discover what lies beyond the walls.
                 </p>
             </section>
@@ -342,7 +370,9 @@
         </div>
     </div>
 
-    <!-- PROJET 3 : CUBE BREAKER -->
+    <!-- ==========================================
+         DÉTAILS PROJET 3 : CUBE BREAKER
+         ========================================== -->
     <div id="project-3-page" class="window">
         <div class="window-header">
             <button class="btn-close">X</button>
@@ -408,22 +438,22 @@
                     <div class="role-card">
                         <h3>Programming</h3>
                         <p>
-                        On the technical side, I developed the game using Unity’s Visual Scripting, focusing heavily on the robustness of the core mechanics.<br>
-                        A significant portion of the programming was dedicated to the ball’s fragmentation system, ensuring the trajectory of the six sub-projectiles felt natural while preventing technical issues like infinite bouncing loops.<br>
-                        I also programmed a variety of specialized cube behaviors, such as teleportation and shrinking, to keep the level design diverse and challenging.<br>
-                        Finally, I placed a major emphasis on Game Feel, which is essential for a casual mobile experience.<br>
-                        I implemented several 'juice' elements, including screen shakes, custom shaders, and polished particle effects, to make every explosion feel impactful and rewarding for the player.
+                            On the technical side, I developed the game using Unity’s Visual Scripting, focusing heavily on the robustness of the core mechanics.<br>
+                            A significant portion of the programming was dedicated to the ball’s fragmentation system, ensuring the trajectory of the six sub-projectiles felt natural while preventing technical issues like infinite bouncing loops.<br>
+                            I also programmed a variety of specialized cube behaviors, such as teleportation and shrinking, to keep the level design diverse and challenging.<br>
+                            Finally, I placed a major emphasis on Game Feel, which is essential for a casual mobile experience.<br>
+                            I implemented several 'juice' elements, including screen shakes, custom shaders, and polished particle effects, to make every explosion feel impactful and rewarding for the player.
                         </p>
                     </div>
                     <div class="role-card">
                         <h3>Level design</h3>
                         <p>
-                        Regarding the Level Design, my goal was to create a seamless onboarding experience through organic tutorialization.<br>
-                        I designed the initial stages to let players discover the explosion mechanic and the victory conditions naturally, without the need for intrusive text.<br>
-                        New elements, such as special-effect cubes, are introduced progressively to keep the learning curve smooth.<br>
-                        As the player advances, the number of targets increases, and the layouts become more complex to maintain a steady challenge.<br>
-                        However, I intentionally avoided a punitive design; the game encourages a 'relaxing yet engaging' flow where the player decides whether to restart a level to improve their score. <br>
-                        This non-mandatory retry system ensures that the experience remains accessible and stress-free, staying true to the casual mobile gaming philosophy.
+                            Regarding the Level Design, my goal was to create a seamless onboarding experience through organic tutorialization.<br>
+                            I designed the initial stages to let players discover the explosion mechanic and the victory conditions naturally, without the need for intrusive text.<br>
+                            New elements, such as special-effect cubes, are introduced progressively to keep the learning curve smooth.<br>
+                            As the player advances, the number of targets increases, and the layouts become more complex to maintain a steady challenge.<br>
+                            However, I intentionally avoided a punitive design; the game encourages a 'relaxing yet engaging' flow where the player decides whether to restart a level to improve their score. <br>
+                            This non-mandatory retry system ensures that the experience remains accessible and stress-free, staying true to the casual mobile gaming philosophy.
                         </p>
                     </div>
                 </div>
@@ -431,7 +461,9 @@
         </div>
     </div>
 
-    <!-- PROJET 4 : VORACINES -->
+    <!-- ==========================================
+         DÉTAILS PROJET 4 : VORACINES
+         ========================================== -->
     <div id="project-4-page" class="window">
         <div class="window-header">
             <button class="btn-close">X</button>
@@ -499,7 +531,6 @@
         </div>
     </div>
 
-
-<script src="portfolio.js"></script>    
+    <script src="portfolio.js"></script>    
 </body>
 </html>
