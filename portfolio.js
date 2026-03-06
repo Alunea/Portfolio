@@ -7,6 +7,8 @@ const contactPage = document.getElementById("contact-page");
 const enterBtn = document.getElementById("btn-enter");
 const mainMenuPage = document.getElementById("main-page");
 const welcomeScreen = document.getElementById("welcome-screen");
+const resumeBtn = document.getElementById("btn-resume");
+const resumePage = document.getElementById("resume-page");
 
 // Les icônes de projets (dans la grille)
 const projectIcon1 = document.getElementById("project-1");
@@ -51,6 +53,7 @@ enterBtn.onclick = function(){
 aboutMeBtn.onclick = () => openWindow(aboutMePage);
 projectsBtn.onclick = () => openWindow(projectsPage);
 contactBtn.onclick = () => openWindow(contactPage);
+resumeBtn.onclick = () => openWindow(resumePage);
 
 if(projectIcon1) projectIcon1.onclick = () => openWindow(projectPage1);
 if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
