@@ -53,6 +53,18 @@ if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
 if(projectIcon3) projectIcon3.onclick = () => openWindow(projectPage3);
 if(projectIcon4) projectIcon4.onclick = () => openWindow(projectPage4);
 
+function stopVideos(windowElement) {
+    const iframes = windowElement.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+        // On récupère l'URL actuelle
+        const currentSrc = iframe.src;
+        // On force le rafraîchissement de l'iframe en ré-assignant sa source
+        // Cela coupe le flux audio/vidéo et remet la vidéo au début
+        iframe.src = ''; 
+        iframe.src = currentSrc; 
+    });
+}
+
 function openWindow(win) {
     if(!win) return; 
     win.style.display = "flex"; 
@@ -74,6 +86,7 @@ allWindows.forEach(window => {
         btnClose.onclick = (event) => {
             event.stopPropagation(); 
             window.style.display = "none";
+            stopVideos(window);
         };
     }
 
@@ -124,3 +137,67 @@ function bringToFront (windowElement) {
     highestZ += 10;
     windowElement.style.zIndex = highestZ;
 }
+
+
+// UI juice
+
+const cards = document.querySelectorAll('.project-container');
+
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const moveX = (x - rect.width / 2) / 5;
+        const moveY = (y - rect.height / 2) / 5;
+        
+        card.style.boxShadow = `${-moveX}px ${-moveY}px 0px #ff1493`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.boxShadow = '4px 4px 0px rgba(0,0,0,0.1)';
+    });
+});
+
+document.querySelectorAll('.project-container').forEach(box => {
+    box.addEventListener('mouseenter', () => {
+        box.style.zIndex = "999";
+    });
+    box.addEventListener('mouseleave', () => {
+        // On remet un petit délai pour que la transition de retour
+        // se fasse aussi au-dessus des autres
+        setTimeout(() => { box.style.zIndex = "1"; }, 300);
+    });
+});
+
+
+const nameElement = document.getElementById('name');
+
+function createPop() {
+    const icons = ['✦', '★', '+', '◦', '✧'];
+    const pop = document.createElement('span');
+    
+    // Configuration de l'élément
+    pop.innerText = icons[Math.floor(Math.random() * icons.length)];
+    pop.className = 'pop-particle';
+    
+    // Position aléatoire autour du nom
+    const rect = nameElement.getBoundingClientRect();
+    const x = Math.random() * rect.width;
+    const y = Math.random() * rect.height;
+    
+    pop.style.left = x + 'px';
+    pop.style.top = y + 'px';
+    pop.style.color = Math.random() > 0.5 ? '#ff1493' : '#B28DFF';
+    
+    nameElement.appendChild(pop);
+    
+    // Supprimer l'élément après l'animation
+    setTimeout(() => {
+        pop.remove();
+    }, 2000);
+}
+
+// Lance le pop en boucle
+setInterval(createPop, 600);
