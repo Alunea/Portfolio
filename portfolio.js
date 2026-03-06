@@ -23,6 +23,10 @@ const projectPage4 = document.getElementById("project-4-page");
 // On récupère toutes les fenêtres (y compris les projets)
 const allWindows = document.querySelectorAll(".window"); 
 
+let currentOffset = 0; 
+const offsetStep = 250; // Plus ce chiffre est grand, plus le décalage est fort
+const maxOffset = 300; // Limite pour ne pas sortir de l'écran
+
 let isDragging = false; 
 let currentWindow = null; 
 let offsetX, offsetY; 
@@ -67,14 +71,29 @@ function stopVideos(windowElement) {
 
 function openWindow(win) {
     if(!win) return; 
+
+    // On affiche la fenêtre
     win.style.display = "flex"; 
     bringToFront(win);
     
+    // On retire le plein écran si activé
     win.classList.remove("full-screen");
-    // On garde le centrage initial
-    win.style.top = "50%";
-    win.style.left = "50%";
-    win.style.transform = "translate(-50%, -50%)";
+
+    // APPLICATION DU DÉCALAGE GÉNÉREUX
+    // On utilise 30% en Top pour laisser de la place à la cascade vers le bas
+    win.style.top = `calc(30% + ${currentOffset}px)`;
+    win.style.left = `calc(40% + ${currentOffset}px)`;
+    
+    // On supprime le transform pour éviter les conflits de centrage avec le décalage
+    win.style.transform = "none";
+
+    // On incrémente pour la suivante
+    currentOffset += offsetStep;
+
+    // Reset si on dépasse la limite
+    if (currentOffset > maxOffset) {
+        currentOffset = 0;
+    }
 }
 
 // --- 3. LOGIQUE BOUTONS ET DRAG ---
