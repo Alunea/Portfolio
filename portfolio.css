@@ -809,4 +809,19 @@ hr {
     overflow-y: auto !important;  
     overflow-x: hidden !important;
     box-sizing: border-box;
+    align-items: center !important;
+}
+
+.photo-grid {
+    display: flex;
+    align-items: center;    /* Centre les images horizontalement */
+    width: 100%;            /* Prend toute la largeur du container à carreaux */
+    gap: 20px;              /* Espace entre les images */
+}
+
+/* On s'assure que les images elles-mêmes ne dépassent pas */
+.project-img {
+    max-width: 90%;         /* Laisse un peu de marge sur les côtés */
+    height: auto;
+    display: block;
 }
