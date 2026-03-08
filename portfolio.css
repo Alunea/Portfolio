@@ -31,7 +31,9 @@ body {
 #project-2-page .window-content::-webkit-scrollbar,
 #project-3-page .window-content::-webkit-scrollbar,
 #project-4-page .window-content::-webkit-scrollbar,
-#about-me-page .window-content::-webkit-scrollbar {
+#about-me-page .window-content::-webkit-scrollbar,
+.full-screen#contact-page::-webkit-scrollbar,
+.full-screen#projects-page::-webkit-scrollbar {
     width: 12px;
 }
 
@@ -39,7 +41,9 @@ body {
 #project-2-page .window-content::-webkit-scrollbar-track,
 #project-3-page .window-content::-webkit-scrollbar-track,
 #project-4-page .window-content::-webkit-scrollbar-track,
-#about-me-page .window-content::-webkit-scrollbar-track{
+#about-me-page .window-content::-webkit-scrollbar-track,
+.full-screen#contact-page::-webkit-scrollbar-track,
+.full-screen#projects-page::-webkit-scrollbar-track {
     background: #f8c0d0;
     border-radius: 10px;
 }
@@ -48,7 +52,9 @@ body {
 #project-2-page .window-content::-webkit-scrollbar-thumb,
 #project-3-page .window-content::-webkit-scrollbar-thumb,
 #project-4-page .window-content::-webkit-scrollbar-thumb,
-#about-me-page .window-content::-webkit-scrollbar-thumb{
+#about-me-page .window-content::-webkit-scrollbar-thumb,
+.full-screen#contact-page::-webkit-scrollbar-thumb,
+.full-screen#projects-page::-webkit-scrollbar-thumb {
     background: #ff1493;
     border: 2px solid #f8c0d0;
     border-radius: 10px;
@@ -96,7 +102,9 @@ body {
     left: 0 !important;
     transform: none !important;
     border: none !important;
+    border-radius: 0 !important;
     z-index: 5000 !important;
+    position: fixed !important;
 }
 
 /* ========================================= 
@@ -213,13 +221,6 @@ body {
 
 #name:hover { transform: scale(1.05) rotate(-2deg); }
 
-/* --- Menu & Pages Principales --- */
-#main-menu-page {
-    display: none;  
-    width: 600px;  
-    background-color: blueviolet;
-}
-
 #main-page {
     display: flex;
     flex-direction: column;
@@ -270,8 +271,8 @@ body {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    width: 100% !important;
-    height: calc(100% - 40px);
+    width: auto;
+    height: auto;
     padding: 30px 0 !important;
     overflow-y: auto !important;  
     overflow-x: hidden !important;
@@ -315,8 +316,6 @@ body {
 #contact-page {
     display: none;  
     flex-direction: column;
-    width: 800px;
-    height: 750px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -644,12 +643,13 @@ hr {
         linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px), 
         linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
     background-size: 20px 20px;
-    border: 2px solid #ff1493;
-    border-radius: 12px;
+    border: 3px solid #ff1493;
+    border-radius: 15px;
     box-sizing: border-box;
     height: auto;
     min-height: 400px;
     padding: 30px;
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
 }
 
 .contact-form {
@@ -761,16 +761,456 @@ hr {
     .contact-info-row { flex-direction: column; padding-bottom: 40px; }
 }
 
-/* Adaptations spécifiques Full Screen */
-.full-screen .contact-container, .full-screen .container { width: 95%; height: 85%; }
-.full-screen .contact-form textarea { height: 40vh; }
-.full-screen .project-section { max-width: 90% !important; }
-.full-screen .photo-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-.full-screen .project-img { width: 45%; min-width: 300px; max-width: 600px; }
-.full-screen .video-wrapper { max-width: 1000px; margin-top: 40px; }
+/* ============ RESUME (CV) FULLSCREEN ============ */
+.full-screen#resume-page {
+    background-color: #ffc2d1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.full-screen#resume-page .window-header {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
+}
+
+.full-screen#resume-page .resume-window-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 60px 40px !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#resume-page .resume-section {
+    display: flex !important;
+    gap: 100px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+}
+
+.full-screen#resume-page .cv-icon-wrapper {
+    width: 280px !important;
+    height: 280px !important;
+    background-color: #f8c0d0 !important;
+    background-image:  
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px), 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    border: 3px solid #ff1493 !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    cursor: pointer !important;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.1) !important;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
+}
+
+.full-screen#resume-page .cv-icon-wrapper:hover {
+    transform: scale(1.15) translateY(-15px) !important;
+    box-shadow: 0px 20px 40px rgba(255, 20, 147, 0.5) !important;
+    outline: 4px solid white !important;
+    outline-offset: -8px !important;
+}
+
+.full-screen#resume-page .icon-style-cv {
+    width: 120px !important;
+    height: auto !important;
+}
+
+.full-screen#resume-page .cv-text {
+    margin-top: 20px !important;
+    font-family: "Finger Paint", sans-serif !important;
+    color: #ff1493 !important;
+    font-size: 1.5rem !important;
+    text-shadow: 2px 2px 0px white !important;
+}
 
 /* ========================================= 
-    12. ANIMATIONS & TRANSITIONS 
+    12. FULLSCREEN POUR TOUTES LES PAGES
+    ========================================= */
+
+/* ============ ABOUT ME FULLSCREEN ============ */
+.full-screen#about-me-page {
+    background-color: #ffc2d1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.full-screen#about-me-page .window-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    width: 100% !important;
+}
+
+.full-screen#about-me-page .window-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 60px 40px !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#about-me-page .project-section {
+    width: 95% !important;
+    max-width: none !important;
+    margin: 30px auto !important;
+    background-color: #f8c0d0 !important;
+    background-image:  
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px), 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    border: 3px solid #ff1493 !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#about-me-page .about-intro-container {
+    flex-direction: row !important;
+    gap: 50px !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+}
+
+.full-screen#about-me-page .photo-card {
+    flex: 0 0 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    padding: 10px !important;
+}
+
+.full-screen#about-me-page .bio-text-wrapper {
+    flex: 1 !important;
+    min-width: 300px !important;
+}
+
+.full-screen#about-me-page .roles-container {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.full-screen#about-me-page .role-card {
+    flex: 1 1 calc(33% - 20px) !important;
+    min-width: 320px !important;
+    margin: 0 !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-left: 8px solid #ff1493 !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+}
+
+.full-screen#about-me-page h1 {
+    width: 100% !important;
+    font-size: 2.5rem !important;
+    color: #ff1493 !important;
+    text-shadow: 3px 3px 0px #ff1493 !important;
+}
+
+.full-screen#about-me-page h2 {
+    font-size: 2rem !important;
+    color: #ff1493 !important;
+}
+
+/* ============ CONTACT FULLSCREEN ============ */
+.full-screen#contact-page {
+    background-color: #ffc2d1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.full-screen#contact-page .window-header {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
+}
+
+.full-screen#contact-page .container {
+    display: none !important;
+}
+
+.full-screen#contact-page .contact-container {
+    width: 90% !important;
+    max-width: none !important;
+    margin: 50px auto 40px auto !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 35px !important;
+    background-color: #f8c0d0 !important;
+    background-image:  
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px), 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px) !important;
+    background-size: 25px 25px !important;
+    border: 4px solid #ff1493 !important;
+    border-radius: 20px !important;
+    box-shadow: 
+        0 0 0 6px #ffc2d1,
+        0 10px 40px rgba(255, 20, 147, 0.8),
+        inset 0 0 20px rgba(255, 20, 147, 0.1) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.full-screen#contact-page .contact-form {
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.full-screen#contact-page .contact-form input,
+.full-screen#contact-page .contact-form textarea {
+    padding: 15px !important;
+    font-size: 1rem !important;
+    margin-bottom: 15px !important;
+}
+
+.full-screen#contact-page .contact-form textarea {
+    height: 250px !important;
+    resize: vertical !important;
+}
+
+.full-screen#contact-page .btn-send {
+    padding: 15px 40px !important;
+    font-size: 1.1rem !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+}
+
+.full-screen#contact-page .contact-info-row {
+    width: 95% !important;
+    max-width: none !important;
+    flex-direction: row !important;
+    gap: 30px !important;
+    justify-content: center !important;
+    margin: 50px auto 60px auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#contact-page .info-card {
+    flex: 1 1 auto !important;
+    min-width: 200px !important;
+    max-width: none !important;
+    padding: 25px !important;
+}
+
+/* ============ PROJECTS FULLSCREEN ============ */
+.full-screen#projects-page {
+    background-color: #ffc2d1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.full-screen#projects-page .window-header {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
+}
+
+.full-screen#projects-page .title {
+    padding: 40px 20px 20px 20px !important;
+    margin: 0 !important;
+    font-size: 4rem !important;
+    color: white !important;
+    text-shadow: 3px 3px 0px #ff1493, 6px 6px 0px #ffb7ed !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.full-screen#projects-page .projects-wrapper {
+    width: 98% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow-y: visible !important;
+    padding: 40px 20px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 20px auto 60px auto !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#projects-page .project-container {
+    width: 220px !important;
+    height: 220px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    background-color: #f8c0d0 !important;
+    background-image:  
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px), 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    border: 3px solid #ff1493 !important;
+    border-radius: 12px !important;
+}
+
+/* ============ PROJECT DETAILS FULLSCREEN ============ */
+.full-screen#project-1-page,
+.full-screen#project-2-page,
+.full-screen#project-3-page,
+.full-screen#project-4-page {
+    background-color: #ffc2d1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.full-screen#project-1-page .window-header,
+.full-screen#project-2-page .window-header,
+.full-screen#project-3-page .window-header,
+.full-screen#project-4-page .window-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    width: 100% !important;
+}
+
+.full-screen#project-1-page .window-content,
+.full-screen#project-2-page .window-content,
+.full-screen#project-3-page .window-content,
+.full-screen#project-4-page .window-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 40px 30px !important;
+    overflow-y: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#project-1-page .project-section,
+.full-screen#project-2-page .project-section,
+.full-screen#project-3-page .project-section,
+.full-screen#project-4-page .project-section {
+    width: 98% !important;
+    max-width: none !important;
+    margin: 30px auto !important;
+    background-color: #f8c0d0 !important;
+    background-image:  
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px), 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    border: 3px solid #ff1493 !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    box-sizing: border-box !important;
+}
+
+.full-screen#project-1-page .photo-grid,
+.full-screen#project-2-page .photo-grid,
+.full-screen#project-3-page .photo-grid,
+.full-screen#project-4-page .photo-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    width: 100% !important;
+}
+
+.full-screen#project-1-page .project-img,
+.full-screen#project-2-page .project-img,
+.full-screen#project-3-page .project-img,
+.full-screen#project-4-page .project-img {
+    width: 49% !important;
+    min-width: 300px !important;
+    max-width: none !important;
+    height: auto !important;
+    border: 3px solid #ff1493 !important;
+    border-radius: 8px !important;
+}
+
+.full-screen#project-1-page .video-wrapper,
+.full-screen#project-2-page .video-wrapper,
+.full-screen#project-3-page .video-wrapper,
+.full-screen#project-4-page .video-wrapper {
+    max-width: 95% !important;
+    width: 95% !important;
+    margin: 40px auto !important;
+    border: 3px solid #ff1493 !important;
+    border-radius: 12px !important;
+}
+
+.full-screen#project-1-page .roles-container,
+.full-screen#project-2-page .roles-container,
+.full-screen#project-3-page .roles-container,
+.full-screen#project-4-page .roles-container {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.full-screen#project-1-page .role-card,
+.full-screen#project-2-page .role-card,
+.full-screen#project-3-page .role-card,
+.full-screen#project-4-page .role-card {
+    flex: 1 1 calc(50% - 15px) !important;
+    min-width: 400px !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-left: 8px solid #ff1493 !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+}
+
+.full-screen#project-1-page h1,
+.full-screen#project-2-page h1,
+.full-screen#project-3-page h1,
+.full-screen#project-4-page h1 {
+    font-size: 2.5rem !important;
+    color: #ff1493 !important;
+    text-shadow: 3px 3px 0px #ff1493 !important;
+}
+
+.full-screen#project-1-page h2,
+.full-screen#project-2-page h2,
+.full-screen#project-3-page h2,
+.full-screen#project-4-page h2 {
+    font-size: 2rem !important;
+    color: #ff1493 !important;
+}
+
+/* ========================================= 
+    13. ANIMATIONS & TRANSITIONS 
     ========================================= */
 @keyframes pop-animation { 
     0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; }
@@ -814,14 +1254,14 @@ hr {
 
 .photo-grid {
     display: flex;
-    align-items: center;    /* Centre les images horizontalement */
-    width: 100%;            /* Prend toute la largeur du container à carreaux */
-    gap: 20px;              /* Espace entre les images */
+    flex-direction: column; 
+    align-items: center;   
+    width: 100%;           
+    gap: 20px;              
 }
 
-/* On s'assure que les images elles-mêmes ne dépassent pas */
 .project-img {
-    max-width: 90%;         /* Laisse un peu de marge sur les côtés */
+    max-width: 90%;         
     height: auto;
     display: block;
 }

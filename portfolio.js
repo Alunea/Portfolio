@@ -120,47 +120,60 @@ document.addEventListener("mousedown", (event) => {
     }
 });
 
-allWindows.forEach(window => {
-    const btnClose = window.querySelector('.btn-close');
-    const btnMax = window.querySelector('.btn-max');
+allWindows.forEach(windowElement => {
+    const btnClose = windowElement.querySelector('.btn-close');
+    const btnMax = windowElement.querySelector('.btn-max');
 
-    // Bouton Fermer
+    // Bouton Fermer - PRIORITÉ HAUTE
     if(btnClose) {
-        btnClose.onclick = (event) => {
-            event.stopPropagation(); 
-            window.style.display = "none";
-            stopVideos(window);
-        };
+        btnClose.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            windowElement.style.display = "none";
+            stopVideos(windowElement);
+            return false;
+        }, true); // Capture phase pour priorité
     }
 
-    // Bouton Agrandir
+    // Bouton Agrandir - PRIORITÉ HAUTE
     if(btnMax) {
-        btnMax.onclick = (event) => {
-            event.stopPropagation(); 
-            window.classList.toggle("full-screen");
-            if (window.classList.contains("full-screen")) {
-                window.style.top = "0";
-                window.style.left = "0";
-                window.style.transform = "none";
+        btnMax.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            windowElement.classList.toggle("full-screen");
+            if (windowElement.classList.contains("full-screen")) {
+                windowElement.style.top = "0";
+                windowElement.style.left = "0";
+                windowElement.style.transform = "none";
             } else {
-                window.style.top = "50%";
-                window.style.left = "50%";
-                window.style.transform = "translate(-50%, -50%)";
+                windowElement.style.top = "50%";
+                windowElement.style.left = "50%";
+                windowElement.style.transform = "translate(-50%, -50%)";
             }
-        };
+            return false;
+        }, true); // Capture phase pour priorité
     }
 
-    // Début du Drag
-    window.addEventListener("mousedown", (event) => {
-        if (event.target.tagName === 'BUTTON' || event.target.tagName === 'INPUT' || 
-            event.target.tagName === 'TEXTAREA' || event.target.tagName === 'IFRAME') return;
+    // Début du Drag - seulement si ce n'est pas un bouton
+    windowElement.addEventListener("mousedown", (event) => {
+        // Ne pas faire de drag si on clique sur un élément interactif
+        if (event.target.tagName === 'BUTTON' || 
+            event.target.tagName === 'INPUT' || 
+            event.target.tagName === 'TEXTAREA' || 
+            event.target.tagName === 'IFRAME' ||
+            event.target.closest('.btn-close') ||
+            event.target.closest('.btn-max')) {
+            return;
+        }
 
         isDragging = true; 
-        currentWindow = window;
-        const rect = window.getBoundingClientRect();
+        currentWindow = windowElement;
+        const rect = windowElement.getBoundingClientRect();
         offsetX = event.clientX - rect.left;
         offsetY = event.clientY - rect.top;
-        window.style.cursor = 'grabbing';
+        windowElement.style.cursor = 'grabbing';
     });
 });
 
