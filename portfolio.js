@@ -226,6 +226,28 @@ document.querySelectorAll('.project-container').forEach(box => {
     });
 });
 
+
+function initProjectHoverDetails() {
+    const projectContainers = document.querySelectorAll('.project-container');
+    
+    projectContainers.forEach(container => {
+        const name = container.dataset.name;
+        const type = container.dataset.type;
+        const description = container.dataset.description;
+        
+        const detailsHTML = `
+            <div class="project-details">
+                <div class="project-name">${name}</div>
+                <div class="project-type">${type}</div>
+                <div class="project-description">${description}</div>
+            </div>
+        `;
+        
+        container.innerHTML += detailsHTML;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initProjectHoverDetails);
 /* ========================================= 
     7. ANIMATIONS (PARTICULES POP)
     ========================================= */
