@@ -24,12 +24,16 @@ const projectIcon1 = document.getElementById("project-1");
 const projectIcon2 = document.getElementById("project-2");
 const projectIcon3 = document.getElementById("project-3");
 const projectIcon4 = document.getElementById("project-4");
+const projectIcon5 = document.getElementById("project-5");
+const projectIcon6 = document.getElementById("project-6");
 
 // Pages de détails des projets
 const projectPage1 = document.getElementById("project-1-page");
 const projectPage2 = document.getElementById("project-2-page");
 const projectPage3 = document.getElementById("project-3-page");
 const projectPage4 = document.getElementById("project-4-page");
+const projectPage5 = document.getElementById("project-5-page");
+const projectPage6 = document.getElementById("project-6-page");
 
 // Sélections globales
 const allWindows = document.querySelectorAll(".window"); 
@@ -83,6 +87,14 @@ if(projectIcon3) projectIcon3.onclick = (event) => {
 if(projectIcon4) projectIcon4.onclick = (event) => {
     event.stopPropagation();
     openWindow(projectPage4);
+};
+if(projectIcon5) projectIcon5.onclick = (event) => {
+    event.stopPropagation();
+    openWindow(projectPage5);
+};
+if(projectIcon6) projectIcon6.onclick = (event) => {
+    event.stopPropagation();
+    openWindow(projectPage6);
 };
 
 /* ========================================= 

@@ -31,6 +31,8 @@ body {
 #project-2-page .window-content::-webkit-scrollbar,
 #project-3-page .window-content::-webkit-scrollbar,
 #project-4-page .window-content::-webkit-scrollbar,
+#project-5-page .window-content::-webkit-scrollbar,
+#project-6-page .window-content::-webkit-scrollbar,
 #about-me-page .window-content::-webkit-scrollbar,
 .full-screen#contact-page::-webkit-scrollbar,
 .full-screen#projects-page::-webkit-scrollbar {
@@ -41,6 +43,8 @@ body {
 #project-2-page .window-content::-webkit-scrollbar-track,
 #project-3-page .window-content::-webkit-scrollbar-track,
 #project-4-page .window-content::-webkit-scrollbar-track,
+#project-5-page .window-content::-webkit-scrollbar-track,
+#project-6-page .window-content::-webkit-scrollbar-track,
 #about-me-page .window-content::-webkit-scrollbar-track,
 .full-screen#contact-page::-webkit-scrollbar-track,
 .full-screen#projects-page::-webkit-scrollbar-track {
@@ -52,6 +56,8 @@ body {
 #project-2-page .window-content::-webkit-scrollbar-thumb,
 #project-3-page .window-content::-webkit-scrollbar-thumb,
 #project-4-page .window-content::-webkit-scrollbar-thumb,
+#project-5-page .window-content::-webkit-scrollbar-thumb,
+#project-6-page .window-content::-webkit-scrollbar-thumb,
 #about-me-page .window-content::-webkit-scrollbar-thumb,
 .full-screen#contact-page::-webkit-scrollbar-thumb,
 .full-screen#projects-page::-webkit-scrollbar-thumb {
@@ -252,7 +258,7 @@ body {
     overflow: hidden;
 }
 
-#project-1-page, #project-2-page, #project-3-page, #project-4-page {
+#project-1-page, #project-2-page, #project-3-page, #project-4-page, #project-5-page, #project-6-page {
     display: none;  
     position: absolute;
     top: 50%;
@@ -511,7 +517,7 @@ h6 {
 }
 
 /* --- TITRES PROJET --- */
-#project-1-page h2, #project-2-page h2, #project-3-page h2, #project-4-page h2 {
+#project-1-page h2, #project-2-page h2, #project-3-page h2, #project-4-page h2, #project-5-page h2, #project-6-page h2 {
     font-size: 2rem;
     font-weight: 700;
     color: #ff1493;
@@ -522,7 +528,7 @@ h6 {
     text-align: center;
 }
 
-#project-1-page h1, #project-2-page h1, #project-3-page h1, #project-4-page h1 {
+#project-1-page h1, #project-2-page h1, #project-3-page h1, #project-4-page h1, #project-5-page h1, #project-6-page h1 {
     font-size: 2.5rem;
     font-weight: 800;
     color: #ff1493;
@@ -1334,7 +1340,9 @@ hr {
 .full-screen#project-1-page,
 .full-screen#project-2-page,
 .full-screen#project-3-page,
-.full-screen#project-4-page {
+.full-screen#project-4-page,
+.full-screen#project-5-page,
+.full-screen#project-6-page {
     background-color: #ffc2d1 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -1345,7 +1353,9 @@ hr {
 .full-screen#project-1-page .window-header,
 .full-screen#project-2-page .window-header,
 .full-screen#project-3-page .window-header,
-.full-screen#project-4-page .window-header {
+.full-screen#project-4-page .window-header,
+.full-screen#project-5-page .window-header,
+.full-screen#project-6-page .window-header {
     position: sticky !important;
     top: 0 !important;
     z-index: 100 !important;
@@ -1355,7 +1365,9 @@ hr {
 .full-screen#project-1-page .window-content,
 .full-screen#project-2-page .window-content,
 .full-screen#project-3-page .window-content,
-.full-screen#project-4-page .window-content {
+.full-screen#project-4-page .window-content,
+.full-screen#project-5-page .window-content,
+.full-screen#project-6-page .window-content {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
@@ -1370,7 +1382,9 @@ hr {
 .full-screen#project-1-page .project-section,
 .full-screen#project-2-page .project-section,
 .full-screen#project-3-page .project-section,
-.full-screen#project-4-page .project-section {
+.full-screen#project-4-page .project-section,
+.full-screen#project-5-page .project-section,
+.full-screen#project-6-page .project-section {
     width: 98% !important;
     max-width: none !important;
     margin: 30px auto !important;
@@ -1388,7 +1402,9 @@ hr {
 .full-screen#project-1-page .photo-grid,
 .full-screen#project-2-page .photo-grid,
 .full-screen#project-3-page .photo-grid,
-.full-screen#project-4-page .photo-grid {
+.full-screen#project-4-page .photo-grid,
+.full-screen#project-5-page .photo-grid,
+.full-screen#project-6-page .photo-grid {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
@@ -1399,7 +1415,9 @@ hr {
 .full-screen#project-1-page .project-img,
 .full-screen#project-2-page .project-img,
 .full-screen#project-3-page .project-img,
-.full-screen#project-4-page .project-img {
+.full-screen#project-4-page .project-img,
+.full-screen#project-5-page .project-img,
+.full-screen#project-6-page .project-img {
     width: 49% !important;
     min-width: 300px !important;
     max-width: none !important;
@@ -1411,7 +1429,9 @@ hr {
 .full-screen#project-1-page .video-wrapper,
 .full-screen#project-2-page .video-wrapper,
 .full-screen#project-3-page .video-wrapper,
-.full-screen#project-4-page .video-wrapper {
+.full-screen#project-4-page .video-wrapper,
+.full-screen#project-5-page .video-wrapper,
+.full-screen#project-6-page .video-wrapper {
     max-width: 95% !important;
     width: 95% !important;
     margin: 40px auto !important;
@@ -1422,7 +1442,9 @@ hr {
 .full-screen#project-1-page .roles-container,
 .full-screen#project-2-page .roles-container,
 .full-screen#project-3-page .roles-container,
-.full-screen#project-4-page .roles-container {
+.full-screen#project-4-page .roles-container,
+.full-screen#project-5-page .roles-container,
+.full-screen#project-6-page .roles-container {
     flex-direction: row !important;
     flex-wrap: wrap !important;
     gap: 30px !important;
@@ -1433,7 +1455,9 @@ hr {
 .full-screen#project-1-page .role-card,
 .full-screen#project-2-page .role-card,
 .full-screen#project-3-page .role-card,
-.full-screen#project-4-page .role-card {
+.full-screen#project-4-page .role-card,
+.full-screen#project-5-page .role-card,
+.full-screen#project-6-page .role-card {
     flex: 1 1 calc(50% - 15px) !important;
     min-width: 400px !important;
     background: rgba(255, 255, 255, 0.5) !important;
@@ -1446,7 +1470,9 @@ hr {
 .full-screen#project-1-page h1,
 .full-screen#project-2-page h1,
 .full-screen#project-3-page h1,
-.full-screen#project-4-page h1 {
+.full-screen#project-4-page h1,
+.full-screen#project-5-page h1,
+.full-screen#project-6-page h1 {
     font-size: 5rem !important;
     font-weight: 800 !important;
     color: #ff1493 !important;
@@ -1456,7 +1482,9 @@ hr {
 .full-screen#project-1-page h2,
 .full-screen#project-2-page h2,
 .full-screen#project-3-page h2,
-.full-screen#project-4-page h2 {
+.full-screen#project-4-page h2,
+.full-screen#project-5-page h2,
+.full-screen#project-6-page h2 {
     font-size: 4rem !important;
     font-weight: 700 !important;
     color: #ff1493 !important;
@@ -1465,7 +1493,9 @@ hr {
 .full-screen#project-1-page h3,
 .full-screen#project-2-page h3,
 .full-screen#project-3-page h3,
-.full-screen#project-4-page h3 {
+.full-screen#project-4-page h3,
+.full-screen#project-5-page h3,
+.full-screen#project-6-page h3 {
     font-size: 3rem !important;
     font-weight: 700 !important;
     color: #ff1493 !important;
@@ -1474,7 +1504,9 @@ hr {
 .full-screen#project-1-page h4,
 .full-screen#project-2-page h4,
 .full-screen#project-3-page h4,
-.full-screen#project-4-page h4 {
+.full-screen#project-4-page h4,
+.full-screen#project-5-page h4,
+.full-screen#project-6-page h4 {
     font-size: 2.4rem !important;
     font-weight: 600 !important;
     color: #ff1493 !important;
@@ -1483,7 +1515,9 @@ hr {
 .full-screen#project-1-page h5,
 .full-screen#project-2-page h5,
 .full-screen#project-3-page h5,
-.full-screen#project-4-page h5 {
+.full-screen#project-4-page h5,
+.full-screen#project-5-page h5,
+.full-screen#project-6-page h5 {
     font-size: 2rem !important;
     font-weight: 600 !important;
     color: #ff1493 !important;
@@ -1492,7 +1526,9 @@ hr {
 .full-screen#project-1-page h6,
 .full-screen#project-2-page h6,
 .full-screen#project-3-page h6,
-.full-screen#project-4-page h6 {
+.full-screen#project-4-page h6,
+.full-screen#project-5-page h6,
+.full-screen#project-6-page h6 {
     font-size: 1.8rem !important;
     font-weight: 600 !important;
     color: #ff1493 !important;
@@ -1501,7 +1537,9 @@ hr {
 .full-screen#project-1-page p,
 .full-screen#project-2-page p,
 .full-screen#project-3-page p,
-.full-screen#project-4-page p {
+.full-screen#project-4-page p,
+.full-screen#project-5-page p,
+.full-screen#project-6-page p {
     font-size: 1.8rem !important;
     line-height: 1.6 !important;
 }
@@ -1510,10 +1548,14 @@ hr {
 .full-screen#project-2-page ul,
 .full-screen#project-3-page ul,
 .full-screen#project-4-page ul,
+.full-screen#project-5-page ul,
+.full-screen#project-6-page ul,
 .full-screen#project-1-page ol,
 .full-screen#project-2-page ol,
 .full-screen#project-3-page ol,
-.full-screen#project-4-page ol {
+.full-screen#project-4-page ol,
+.full-screen#project-5-page ol,
+.full-screen#project-6-page ol {
     font-size: 1.8rem !important;
     margin: 15px 0 !important;
     padding-left: 40px !important;
@@ -1522,7 +1564,9 @@ hr {
 .full-screen#project-1-page li,
 .full-screen#project-2-page li,
 .full-screen#project-3-page li,
-.full-screen#project-4-page li {
+.full-screen#project-4-page li,
+.full-screen#project-5-page li,
+.full-screen#project-6-page li {
     font-size: 1.8rem !important;
     margin: 10px 0 !important;
     line-height: 1.6 !important;
@@ -1531,7 +1575,9 @@ hr {
 .full-screen#project-1-page .role-card h3,
 .full-screen#project-2-page .role-card h3,
 .full-screen#project-3-page .role-card h3,
-.full-screen#project-4-page .role-card h3 {
+.full-screen#project-4-page .role-card h3,
+.full-screen#project-5-page .role-card h3,
+.full-screen#project-6-page .role-card h3 {
     font-size: 2.8rem !important;
 }
 
@@ -1565,7 +1611,9 @@ hr {
 #project-1-page .window-content, 
 #project-2-page .window-content, 
 #project-3-page .window-content, 
-#project-4-page .window-content {
+#project-4-page .window-content,
+#project-5-page .window-content,
+#project-6-page .window-content {
     display: flex !important;
     flex-direction: column;
     align-items: center;
