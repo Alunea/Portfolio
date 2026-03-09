@@ -331,4 +331,4 @@ function createBackgroundPop() {
 
 // Boucles d'animation
 setInterval(createPop, 600); // Sur le nom
-setInterval(createBackgroundPop, 800); // Sur le background (décalé pour plus d'effet)
+setInterval(createBackgroundPop,100); // Sur le background (décalé pour plus d'effet)

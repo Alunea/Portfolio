@@ -99,6 +99,8 @@ body {
     flex-shrink: 0;
 }
 
+
+
 .full-screen {
     width: 100vw !important;
     height: 100vh !important;
