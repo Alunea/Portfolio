@@ -261,6 +261,7 @@ function initProjectHoverDetails() {
 }
 
 document.addEventListener('DOMContentLoaded', initProjectHoverDetails);
+
 /* ========================================= 
     7. ANIMATIONS (PARTICULES POP)
     ========================================= */
@@ -287,5 +288,35 @@ function createPop() {
     }, 2000);
 }
 
-// Boucle d'animation
-setInterval(createPop, 600);
+// Particules pop sur le body (fond noir)
+function createBackgroundPop() {
+    const icons = ['✦', '★', '+', '◦', '✧'];
+    const pop = document.createElement('span');
+    
+    pop.innerText = icons[Math.floor(Math.random() * icons.length)];
+    pop.className = 'pop-particle';
+    
+    // Position aléatoire sur tout le viewport
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    
+    pop.style.position = 'fixed';
+    pop.style.left = x + 'px';
+    pop.style.top = y + 'px';
+    pop.style.color = Math.random() > 0.5 ? '#ff1493' : '#B28DFF';
+    pop.style.fontSize = '3.5rem'; // GROS - visible sur tout l'écran
+    pop.style.fontWeight = '800';
+    pop.style.zIndex = '100'; // Au-dessus du body mais en arrière-plan
+    pop.style.pointerEvents = 'none'; // Ne pas bloquer les clics
+    pop.style.textShadow = '0 0 10px currentColor'; // Glow effect
+    
+    document.body.appendChild(pop);
+    
+    setTimeout(() => {
+        pop.remove();
+    }, 2000);
+}
+
+// Boucles d'animation
+setInterval(createPop, 600); // Sur le nom
+setInterval(createBackgroundPop, 800); // Sur le background (décalé pour plus d'effet)
