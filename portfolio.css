@@ -103,7 +103,7 @@ body {
     transform: none !important;
     border: none !important;
     border-radius: 0 !important;
-    z-index: 5000 !important;
+    z-index: 5000;
     position: fixed !important;
 }
 

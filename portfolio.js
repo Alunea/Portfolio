@@ -48,7 +48,7 @@ const maxOffset = 300;
 let isDragging = false; 
 let currentWindow = null; 
 let offsetX, offsetY; 
-let highestZ = 1000;
+let highestZ = 5010;
 
 /* ========================================= 
     3. GESTION DE L'OUVERTURE / NAVIGATION
@@ -67,10 +67,23 @@ contactBtn.onclick = () => openWindow(contactPage);
 resumeBtn.onclick = () => openWindow(resumePage);
 
 // Clics icônes projets
-if(projectIcon1) projectIcon1.onclick = () => openWindow(projectPage1);
-if(projectIcon2) projectIcon2.onclick = () => openWindow(projectPage2);
-if(projectIcon3) projectIcon3.onclick = () => openWindow(projectPage3);
-if(projectIcon4) projectIcon4.onclick = () => openWindow(projectPage4);
+// Clics icônes projets - Fermer le fullscreen projects avant d'ouvrir le détail
+if(projectIcon1) projectIcon1.onclick = (event) => {
+    event.stopPropagation();
+    openWindow(projectPage1);
+};
+if(projectIcon2) projectIcon2.onclick = (event) => {
+    event.stopPropagation();
+    openWindow(projectPage2);
+};
+if(projectIcon3) projectIcon3.onclick = (event) => {
+    event.stopPropagation();
+    openWindow(projectPage3);
+};
+if(projectIcon4) projectIcon4.onclick = (event) => {
+    event.stopPropagation();
+    openWindow(projectPage4);
+};
 
 /* ========================================= 
     4. FONCTIONS SYSTÈME (WINDOWS)
@@ -80,7 +93,7 @@ function openWindow(win) {
     if(!win) return; 
 
     win.style.display = "flex"; 
-    bringToFront(win);
+    win.style.zIndex = 9999; // Toujours au-dessus du fullscreen
     win.classList.remove("full-screen");
 
     // Positionnement en cascade
@@ -95,7 +108,7 @@ function openWindow(win) {
 }
 
 function bringToFront(windowElement) {
-    highestZ += 10;
+    highestZ = Math.max(highestZ + 10, 5001); // Minimum 5001 pour passer au-dessus du fullscreen
     windowElement.style.zIndex = highestZ;
 }
 
